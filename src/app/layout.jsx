@@ -8,7 +8,7 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
-  const logoUrl = "https://firebasestorage.googleapis.com/v0/b/gemini-canvas-prod.appspot.com/o/files%2Fuploaded%3Aking%20fc%20logo.jpg-fe847212-d811-461f-bb8d-91f7269208cb?alt=media&token=425d6b46-0b8d-4c74-8ac7-e6f77cc728e7";
+  const logoUrl = "/images/logo/logo.png";
 
   return (
     <html lang="en">

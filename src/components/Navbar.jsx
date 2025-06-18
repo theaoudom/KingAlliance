@@ -43,9 +43,21 @@ const Navbar = ({ logoUrl }) => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/latest">
-              <img className="h-14 w-14" src={logoUrl} alt="King Alliance FC Logo" />
-              <span className="text-white font-bold text-xl ml-3 hidden sm:block">King Alliance FC</span>
+            <Link href="/latest" className="flex items-center group">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] rounded-full blur-sm opacity-30 group-hover:opacity-50 transition-opacity"></div>
+                <img 
+                  className="relative h-12 w-12 rounded-full border-2 border-[#d4af37]/30 shadow-lg group-hover:border-[#d4af37] transition-all duration-300" 
+                  src={logoUrl} 
+                  alt="King Alliance FC Logo" 
+                />
+              </div>
+              <div className="ml-4 hidden sm:block">
+                <span className="text-white font-bold text-xl bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                  King Alliance FC
+                </span>
+                <p className="text-xs text-gray-400 font-medium">Est. 2021</p>
+              </div>
             </Link>
           </div>
 
