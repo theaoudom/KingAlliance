@@ -16,20 +16,38 @@ const Navbar = ({ logoUrl }) => {
     { name: "History", path: "/history" }
   ];
 
+  // --- MODIFIED NavLink COMPONENT ---
   const NavLink = ({ link }) => {
     const isActive = pathname === link.path;
     
+    // Classes for the hover underline animation, now with sizing and centering
+    const hoverAnimationClasses = `
+        after:content-[''] after:absolute after:bottom-0 
+        after:h-0.5 after:bg-[#d4af37] after:rounded-full
+        
+        /* Sizing and Centering Classes */
+        after:w-2/3 after:left-1/2 after:-translate-x-1/2
+        
+        /* Animation Classes */
+        after:scale-x-0 after:origin-left 
+        after:transition-transform after:duration-300 after:ease-out
+        hover:after:scale-x-100
+    `;
+
     return (
       <Link
         href={link.path}
         onClick={() => setIsMenuOpen(false)}
-        className={`relative py-2 px-3 text-sm font-medium transition-colors duration-300 ${
-          isActive 
-            ? 'text-white' 
-            : 'text-gray-300 hover:text-white'
-        }`}
+        className={`
+            relative py-2 px-3 text-sm font-medium transition-colors duration-300
+            ${isActive 
+              ? 'text-white'
+              : `text-gray-300 hover:text-white ${hoverAnimationClasses}`
+            }
+        `}
       >
         {link.name}
+        {/* This static underline ONLY shows for the active link */}
         {isActive && (
           <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-0.5 bg-[#d4af37] rounded-full"></span>
         )}
@@ -38,7 +56,7 @@ const Navbar = ({ logoUrl }) => {
   };
 
   return (
-    <nav className="bg-[#201d2a] sticky top-0 z-50 shadow-lg shadow-black/20">
+    <nav className="bg-[#201d2a]/99 backdrop-blur-sm sticky top-0 z-50 shadow-lg shadow-black/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -53,7 +71,7 @@ const Navbar = ({ logoUrl }) => {
                 />
               </div>
               <div className="ml-4 hidden sm:block">
-                <span className="text-white font-bold text-xl bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                <span className="text-white font-bold text-xl bg-gradient-to-r from-white to-gray-300 bg-clip-text ">
                   King Alliance FC
                 </span>
                 <p className="text-xs text-gray-400 font-medium">Est. 2021</p>
@@ -87,4 +105,4 @@ const Navbar = ({ logoUrl }) => {
   );
 };
 
-export default Navbar; 
+export default Navbar;

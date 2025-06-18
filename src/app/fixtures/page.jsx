@@ -1,65 +1,165 @@
 "use client";
 
-import React from 'react';
-import { Calendar, Shield } from 'lucide-react';
-import PageHeader from '../../components/PageHeader';
+import React, { useState } from 'react';
+import { Calendar, Shield, Ticket, ArrowRight, MapPin } from 'lucide-react';
+import HeroSection from '../../components/HeroSection';
+import { mockFixturesByYear, getAllYears } from '../../data/fixtures';
 
-// Mock data
-const mockFixtures = [
-  { id: 1, opponent: "City Rovers", date: "2024-08-12", time: "15:00", venue: "Home", competition: "League", result: null },
-  { id: 2, opponent: "United FC", date: "2024-08-19", time: "19:45", venue: "Away", competition: "League", result: null },
-  { id: 3, opponent: "Coastal Town", date: "2024-08-05", time: "14:00", venue: "Home", competition: "Cup", result: "W 3-0" },
-  { id: 4, opponent: "Mountain View", date: "2024-07-29", time: "16:00", venue: "Away", competition: "League", result: "D 1-1" },
-];
+// --- FixtureCard Component ---
+const FixtureCard = ({ fixture, type }) => {
+  const isResult = type === 'result';
+  const matchDate = new Date(fixture.date).toLocaleDateString('en-US', {
+    weekday: 'long', month: 'long', day: 'numeric'
+  });
 
-export default function FixturesPage() {
-  const upcomingFixtures = mockFixtures.filter(f => f.result === null).sort((a, b) => new Date(a.date) - new Date(b.date));
-  const recentResults = mockFixtures.filter(f => f.result !== null).sort((a, b) => new Date(b.date) - new Date(a.date));
-
-  const FixtureCard = ({ fixture }) => (
-    <div className="bg-white rounded-lg shadow-md p-4 flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0 transform hover:shadow-xl transition-shadow duration-300">
-      <div className="flex items-center space-x-4 text-center sm:text-left">
-        <div className={`w-12 h-12 rounded-full bg-[#201d2a] flex items-center justify-center text-white font-bold`}>
-          <Shield size={24} />
+  const ResultBadge = ({ result }) => {
+    const getResultClasses = () => {
+      if (result.startsWith('W')) return 'bg-green-100 text-green-800';
+      if (result.startsWith('D')) return 'bg-gray-100 text-gray-800';
+      if (result.startsWith('L')) return 'bg-red-100 text-red-800';
+      return 'bg-gray-100 text-gray-800';
+    };
+    return (
+      <span className={`px-2 py-1 text-xs font-bold rounded-full ${getResultClasses()}`}>
+        {result.charAt(0)}
+      </span>
+    );
+  };
+  
+  return (
+    <div className="group bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 transition-transform duration-300 hover:shadow-xl">
+      {/* Card Header */}
+      <div className="bg-gray-50 px-4 py-2 border-b border-gray-200 flex justify-between items-center text-sm">
+        <div className="flex items-center space-x-2 text-gray-600">
+          <Shield size={16} />
+          <span>{fixture.competition}</span>
         </div>
-        <div>
-          <p className="font-bold text-lg text-[#201d2a]">{fixture.opponent}</p>
-          <p className="text-sm text-gray-500">{fixture.competition}</p>
+        <span className="text-gray-500">{matchDate}</span>
+      </div>
+
+      {/* Main Content: Matchup */}
+      <div className="p-6 flex items-center justify-center space-x-4">
+        {/* Home Team */}
+        <div className="flex-1 flex flex-col items-center text-center">
+          <img src={fixture.homeTeam.logoUrl} alt={fixture.homeTeam.name} className="h-16 w-16 mb-2" />
+          <p className="font-bold text-lg text-[#201d2a]">{fixture.homeTeam.name}</p>
+        </div>
+
+        {/* Center Info: Score or Time */}
+        <div className="w-24 text-center">
+          {isResult ? (
+            <div className="flex flex-col items-center">
+                <p className="text-4xl font-bold text-[#201d2a]">{fixture.score}</p>
+                <ResultBadge result={fixture.result} />
+            </div>
+          ) : (
+            <p className="text-3xl font-bold text-[#d4af37]">{fixture.time}</p>
+          )}
+        </div>
+
+        {/* Away Team */}
+        <div className="flex-1 flex flex-col items-center text-center">
+          <img src={fixture.awayTeam.logoUrl} alt={fixture.awayTeam.name} className="h-16 w-16 mb-2" />
+          <p className="font-bold text-lg text-[#201d2a]">{fixture.awayTeam.name}</p>
         </div>
       </div>
-      <div className="text-center">
-        <p className="font-semibold text-gray-800">{new Date(fixture.date).toLocaleDateString('en-GB', { weekday: 'short', day: '2-digit', month: 'short' })}</p>
-        <p className="text-sm text-gray-600">{fixture.time}</p>
-      </div>
-      <div className="text-center">
-        {fixture.result ? (
-          <p className={`text-2xl font-bold ${fixture.result.startsWith('W') ? 'text-green-500' : fixture.result.startsWith('D') ? 'text-gray-500' : 'text-red-500'}`}>{fixture.result}</p>
-        ) : (
-          <p className="text-sm font-semibold bg-[#d4af37] text-[#201d2a] px-3 py-1 rounded-full">{fixture.venue}</p>
-        )}
+
+      {/* Card Footer with Hover Action */}
+      <div className="bg-gray-50 px-4 py-3 border-t border-gray-200 flex justify-between items-center">
+        <div className="flex items-center space-x-2 text-sm text-gray-500">
+          <MapPin size={16}/>
+          <span>{fixture.venue}</span>
+        </div>
+        <a href="#" className="flex items-center bg-[#201d2a] text-white px-3 py-1.5 rounded-md text-xs font-semibold
+                               opacity-0 group-hover:opacity-100 transform group-hover:scale-100 scale-95
+                               transition-all duration-300 ease-in-out">
+            {isResult ? 'Match Report' : 'Get Tickets'}
+            {isResult ? <ArrowRight size={14} className="ml-2"/> : <Ticket size={14} className="ml-2"/>}
+        </a>
       </div>
     </div>
   );
+};
+
+// --- Year Selector Component ---
+const YearSelector = ({ years, selectedYear, onSelectYear }) => (
+  <div className="bg-white p-2 rounded-lg shadow-md mb-12">
+    <div className="flex justify-center">
+      <div className="flex space-x-2 bg-gray-100 p-1 rounded-md overflow-x-auto scrollbar-hide max-w-full">
+        {years.map(year => (
+          <button
+            key={year}
+            onClick={() => onSelectYear(year)}
+            className={`flex-shrink-0 px-6 py-2 text-sm font-bold rounded-md transition-colors duration-300
+              ${selectedYear === year 
+                ? 'bg-[#d4af37] text-[#201d2a] shadow' 
+                : 'bg-transparent text-gray-600 hover:bg-gray-200'
+              }`}
+          >
+            {year}
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
+export default function FixturesPage() {
+  const availableYears = getAllYears();
+  const [selectedYear, setSelectedYear] = useState('2024');
+
+  // --- Get data for selected year ---
+  const yearData = mockFixturesByYear[selectedYear] || { upcoming: [], matched: [] };
+  const { upcoming, matched } = yearData;
 
   return (
-    <div>
-      <PageHeader title="Fixtures & Results" icon={<Calendar size={36} />} />
-      <main className="py-10">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div>
-            <h2 className="text-2xl font-bold text-[#201d2a] mb-6">Upcoming Fixtures</h2>
-            <div className="space-y-4">
-              {upcomingFixtures.map(fixture => <FixtureCard key={fixture.id} fixture={fixture} />)}
-            </div>
+    <div className="bg-gray-50">
+      <HeroSection 
+        title="Fixtures & Results"
+        subtitle="Stay up to date with every match from the season"
+        imageUrl="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=2070&q=80"
+      />
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 -mt-20 relative z-10">
+
+        <YearSelector 
+          years={availableYears}
+          selectedYear={selectedYear}
+          onSelectYear={setSelectedYear}
+        />
+
+        {(upcoming.length > 0 || matched.length > 0) ? (
+          <div className="space-y-16">
+            {/* Upcoming Fixtures Section */}
+            {upcoming.length > 0 && (
+              <div>
+                <h2 className="text-3xl font-extrabold text-[#201d2a] border-b-2 border-[#d4af37] pb-2 mb-8">Upcoming Fixtures</h2>
+                <div className="space-y-6">
+                  {upcoming.map(fixture => <FixtureCard key={fixture.id} fixture={fixture} type="upcoming" />)}
+                </div>
+              </div>
+            )}
+
+            {/* Matched Results Section */}
+            {matched.length > 0 && (
+              <div>
+                <h2 className="text-3xl font-extrabold text-[#201d2a] border-b-2 border-[#d4af37] pb-2 mb-8">
+                  {selectedYear} Results
+                </h2>
+                <div className="space-y-6">
+                  {matched.map(fixture => <FixtureCard key={fixture.id} fixture={fixture} type="result" />)}
+                </div>
+              </div>
+            )}
           </div>
-          <div>
-            <h2 className="text-2xl font-bold text-[#201d2a] mb-6">Recent Results</h2>
-            <div className="space-y-4">
-              {recentResults.map(fixture => <FixtureCard key={fixture.id} fixture={fixture} />)}
-            </div>
+        ) : (
+          // --- Handling for empty years like 2025 ---
+          <div className="text-center bg-white p-10 rounded-lg shadow-md">
+            <h3 className="text-xl font-bold text-[#201d2a]">Fixtures for {selectedYear} have not been announced.</h3>
+            <p className="mt-2 text-gray-600">Please check back later for updates.</p>
           </div>
-        </div>
+        )}
+        
       </main>
     </div>
   );
-} 
+}
