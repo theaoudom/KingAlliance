@@ -2,14 +2,14 @@
 
 import React from 'react';
 import { Users } from 'lucide-react';
-import PageHeader from '../../components/PageHeader';
+import ModernPageHeader from '../../components/PageHeaderModern';
 import PlayerCard from '../../components/PlayerCard';
 import { playersByPosition } from '../../data/players';
 
 export default function PlayersPage() {
   return (
     <div>
-      <PageHeader title="First Team Squad" icon={<Users size={36} />} />
+      <ModernPageHeader title="First Team Squad" icon={<Users size={36} />} />
       <main className="py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           {Object.entries(playersByPosition).map(([position, players]) => (

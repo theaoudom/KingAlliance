@@ -74,7 +74,7 @@ const Navbar = ({ logoUrl }) => {
                 <span className="text-white font-bold text-xl bg-gradient-to-r from-white to-gray-300 bg-clip-text ">
                   King Alliance FC
                 </span>
-                <p className="text-xs text-gray-400 font-medium">Est. 2021</p>
+                <p className="text-xs text-gray-400 font-medium">Est. 2016</p>
               </div>
             </Link>
           </div>

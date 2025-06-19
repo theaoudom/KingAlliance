@@ -117,7 +117,7 @@ export default function FixturesPage() {
       <HeroSection 
         title="Fixtures & Results"
         subtitle="Stay up to date with every match from the season"
-        imageUrl="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=2070&q=80"
+        imageUrl="https://wallpapercat.com/w/full/7/5/0/172434-3840x2160-desktop-4k-football-wallpaper-image.jpg"
       />
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 -mt-20 relative z-10">
 

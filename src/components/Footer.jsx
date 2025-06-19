@@ -5,7 +5,7 @@ const Footer = ({ logoUrl }) => (
                 <div className="flex flex-col items-center md:items-start">
                     <img className="h-16 w-16 mb-4" src={logoUrl} alt="King Alliance FC Logo" />
                     <p className="font-bold text-xl text-white">King Alliance FC</p>
-                    <p className="text-sm">Est. 2021</p>
+                    <p className="text-sm">Est. 2016</p>
                 </div>
                 <div>
                     <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
