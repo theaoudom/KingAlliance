@@ -105,9 +105,32 @@ export const mockFixturesByYear = {
       }
     ]
   },
-  "2025": {
+  "2019": {
     upcoming: [],
-    matched: []
+    matched: [
+      { 
+        id: 201902, 
+        homeTeam: { name: "King Alliance", logoUrl: "/images/logo/logo.png" }, 
+        awayTeam: { name: "Reab All Star", logoUrl: "/images/logo/logo.png" },
+        date: "2019-06-29", 
+        time: "14:00", 
+        venue: "Uknow", 
+        competition: "Friendly Match", 
+        result: "W", 
+        score: "2 - 1"
+      },
+      { 
+        id: 201901, 
+        homeTeam: { name: "King Alliance", logoUrl: "/images/logo/logo.png" }, 
+        awayTeam: { name: "Unknow Team", logoUrl: "/images/logo/logo.png" },
+        date: "2019-01-11", 
+        time: "14:00", 
+        venue: "Uknow", 
+        competition: "Friendly Match", 
+        result: "W", 
+        score: "3 - 1"
+      }
+    ]
   }
 };
 

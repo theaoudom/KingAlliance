@@ -165,7 +165,7 @@ export default function LatestPage() {
       <HeroSection 
             title="Latest News"
             subtitle="All the latest updates, announcements, and stories from King Alliance"
-            imageUrl="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=2571&q=80" // Using the championship photo for impact
+            imageUrl="/images/team/2025_team.png" // Using the championship photo for impact
         />
       <main className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
