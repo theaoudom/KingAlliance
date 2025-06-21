@@ -17,7 +17,7 @@ export default function Loading() {
       {/* 1. Subtle Background Image */}
       <div className="absolute inset-0 z-0 opacity-5">
         <img
-          src="/images/logo/logo.png" // A blurry stadium or pitch texture
+          src="https://wallpapercat.com/w/full/7/5/0/172434-3840x2160-desktop-4k-football-wallpaper-image.jpg" // A blurry stadium or pitch texture
           alt="Loading background"
           className="w-full h-full object-cover"
         />
@@ -29,7 +29,7 @@ export default function Loading() {
         <div className="relative mb-8">
             <img 
               className="relative h-24 w-24 rounded-full animate-pulse" 
-              src="/club-logo.png" // IMPORTANT: Use your actual logo path
+              src="/images/logo/logo.png" // IMPORTANT: Use your actual logo path
               alt="King Alliance FC Logo" 
             />
         </div>
