@@ -21,7 +21,7 @@ export const mockHistory = [
         season: "2016-2018",
         achievement: "Division 2 Champions",
         details: "Dominated the second division to secure promotion to the top flight in our first full season.",
-        imageUrl: "https://images.unsplash.com/photo-1628891890377-573783d7e5a7?auto=format&fit=crop&w=1770&q=80", // Image of a player looking determined
+        imageUrl: "/images/team/2016_team.png", // Image of a player looking determined
     },
 ];
 

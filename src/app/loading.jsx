@@ -17,7 +17,7 @@ export default function Loading() {
       {/* 1. Subtle Background Image */}
       <div className="absolute inset-0 z-0 opacity-5">
         <img
-          src="https://images.unsplash.com/photo-1552667466-07770ae110d0?auto=format&fit=crop&w=1770&q=80" // A blurry stadium or pitch texture
+          src="/images/logo/logo.png" // A blurry stadium or pitch texture
           alt="Loading background"
           className="w-full h-full object-cover"
         />
