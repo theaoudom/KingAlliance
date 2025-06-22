@@ -12,8 +12,8 @@ export const mockHistory = [
     {
         id: 2,
         season: "2018-2019",
-        achievement: "Domestic Cup Runners-Up",
-        details: "A memorable cup run that ended in a narrow defeat in the final, but won the hearts of fans everywhere.",
+        achievement: "Birth of KING UNITED",
+        details: "In 2018, the team was reborn as KING UNITED, proudly wearing a striking black uniform — marking the beginning of a bold new era.",
         imageUrl: "/images/team/2018_team.jpg", // Image of a silver medal or trophy
     },
     {
