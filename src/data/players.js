@@ -8,7 +8,7 @@ export const playersByPosition = {
     { id: 8, name: "Ryan Thompson", position: "Defender", number: 3, imageUrl: `https://placehold.co/400x400/201d2a/d4af37?text=RT` },
   ],
   Midfielders: [
-    { id: 2, name: "Alex Johnson", position: "Midfielder", number: 8, imageUrl: `https://placehold.co/400x400/201d2a/d4af37?text=AJ` },
+    { id: 15, name: "Chea Lyhorng", position: "Midfielder", number: 15, imageUrl: `/images/players/tutu_2023_kit2.png` },
     { id: 6, name: "Marco Diaz", position: "Midfielder", number: 6, imageUrl: `https://placehold.co/400x400/201d2a/d4af37?text=MD` },
   ],
   Forwards: [

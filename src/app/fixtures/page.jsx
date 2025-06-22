@@ -41,7 +41,11 @@ const FixtureCard = ({ fixture, type }) => {
       <div className="p-6 flex items-center justify-center space-x-4">
         {/* Home Team */}
         <div className="flex-1 flex flex-col items-center text-center">
-          <img src={fixture.homeTeam.logoUrl} alt={fixture.homeTeam.name} className="h-16 w-16 mb-2" />
+          {fixture.homeTeam.logoUrl ? (
+            <img src={fixture.homeTeam.logoUrl} alt={fixture.homeTeam.name} className="h-16 w-16 mb-2" />
+          ) : (
+            <Shield size={64} className="mb-2 text-gray-300" />
+          )}
           <p className="font-bold text-lg text-[#201d2a]">{fixture.homeTeam.name}</p>
         </div>
 
@@ -59,7 +63,11 @@ const FixtureCard = ({ fixture, type }) => {
 
         {/* Away Team */}
         <div className="flex-1 flex flex-col items-center text-center">
-          <img src={fixture.awayTeam.logoUrl} alt={fixture.awayTeam.name} className="h-16 w-16 mb-2" />
+          {fixture.awayTeam.logoUrl ? (
+            <img src={fixture.awayTeam.logoUrl} alt={fixture.awayTeam.name} className="h-16 w-16 mb-2" />
+          ) : (
+            <Shield size={64} className="mb-2 text-gray-600" />
+          )}
           <p className="font-bold text-lg text-[#201d2a]">{fixture.awayTeam.name}</p>
         </div>
       </div>
