@@ -13,7 +13,8 @@ const Navbar = ({ logoUrl }) => {
     { name: "Latest", path: "/latest" },
     { name: "Fixtures", path: "/fixtures" },
     { name: "Players", path: "/players" },
-    { name: "History", path: "/history" }
+    { name: "History", path: "/history" },
+    { name: "Kits", path: "/kit" },
   ];
 
   // --- MODIFIED NavLink COMPONENT ---
