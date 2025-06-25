@@ -1,9 +1,15 @@
+const getFontSize = (name) => {
+    if (name.length > 15) return 'text-xl lg:text-2xl';
+    if (name.length > 10) return 'text-2xl lg:text-3xl';
+    return 'text-3xl lg:text-4xl';
+};
+
 const PlayerCard = ({ player }) => {
     const [firstName, ...lastNameParts] = player.name.split(' ');
     const lastName = lastNameParts.join(' ');
 
     return (
-        <div className="relative aspect-[4/5] w-full rounded-xl overflow-hidden group shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+        <div className="relative aspect-[4/5] w-full rounded-xl overflow-hidden group shadow-lg transform hover:-translate-y-2 transition-transform duration-300 bg-" style={{ backgroundColor: 'rgb(32, 29, 42)' }}>
             {/* Player Image */}
             <img
                 src={player.imageUrl}
@@ -23,7 +29,7 @@ const PlayerCard = ({ player }) => {
             {/* Player Info */}
             <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
                 <p className="text-lg font-light">{firstName}</p>
-                <h3 className="text-3xl lg:text-4xl font-bold uppercase tracking-wider">{lastName}</h3>
+                <h3 className={`font-bold uppercase tracking-wider ${getFontSize(lastName)}`}>{lastName}</h3>
                 <div className="w-1/4 h-1 bg-[#d4af37] my-2 rounded-full"></div>
                 <p className="text-md font-semibold text-gray-300">{player.position}</p>
             </div>

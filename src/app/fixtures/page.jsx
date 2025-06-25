@@ -114,7 +114,7 @@ const YearSelector = ({ years, selectedYear, onSelectYear }) => (
 
 export default function FixturesPage() {
   const availableYears = getAllYears();
-  const [selectedYear, setSelectedYear] = useState('2024');
+  const [selectedYear, setSelectedYear] = useState('2025');
 
   // --- Get data for selected year ---
   const yearData = mockFixturesByYear[selectedYear] || { upcoming: [], matched: [] };

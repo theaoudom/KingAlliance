@@ -18,7 +18,7 @@ const mockKitsBySeason = [
     kits: [
       { id: 1, type: "Home", imageUrl: "https://mufc-live.cdn.scayle.cloud/images/1e7659dda8fed1f7a8465bfd6d7b9b46.jpg?brightness=1&width=720&height=960&quality=75&bg=ffffff", price: "$99.99", isForSale: true },
       { id: 2, type: "Away", imageUrl: "https://mufc-live.cdn.scayle.cloud/images/1e7659dda8fed1f7a8465bfd6d7b9b46.jpg?brightness=1&width=720&height=960&quality=75&bg=ffffff", price: "$99.99", isForSale: true },
-      { id: 3, type: "Third", imageUrl: "https://mufc-live.cdn.scayle.cloud/images/1e7659dda8fed1f7a8465bfd6d7b9b46.jpg?brightness=1&width=720&height=960&quality=75&bg=ffffff", isForSale: false }, // Not for sale
+      { id: 3, type: "Third", imageUrl: "/images/kits/ansory_back_blue.png", isForSale: false }, // Not for sale
     ],
   },
   {
@@ -26,7 +26,7 @@ const mockKitsBySeason = [
     layoutType: 'dual',
     kits: [
       { id: 4, type: "Home", imageUrl: "https://mufc-live.cdn.scayle.cloud/images/1e7659dda8fed1f7a8465bfd6d7b9b46.jpg?brightness=1&width=720&height=960&quality=75&bg=ffffff", price: "$99.99", isForSale: true },
-      { id: 6, type: "Goalkeeper", imageUrl: "https://images.unsplash.com/photo-1608229729221-b1137357065a?auto=format&fit=crop&w=1200&q=80", isForSale: false },
+      { id: 6, type: "Goalkeeper", imageUrl: "/images/kits/ansory_back_blue.png", isForSale: false },
     ],
   },
   {
@@ -36,7 +36,7 @@ const mockKitsBySeason = [
       { 
         id: 7, 
         type: "Championship Kit", 
-        imageUrl: "https://images.unsplash.com/photo-1600216835223-718c393793b3?auto=format&fit=crop&w=1600&q=80",
+        imageUrl: "/images/kits/2019_team_kit.png",
         isForSale: false,
         description: "Celebrate a historic season with the limited edition Championship kit, as worn by the team when lifting the trophy. A collector's item for every true fan."
       },

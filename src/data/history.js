@@ -18,9 +18,9 @@ export const mockHistory = [
     },
     {
         id: 1,
-        season: "2016-2018",
-        achievement: "Division 2 Champions",
-        details: "Dominated the second division to secure promotion to the top flight in our first full season.",
+        season: "2016-2017",
+        achievement: "Where It All Began",
+        details: "Founded by high school friends with a shared passion, the team began its journey in 2016 — a bond built on friendship, dreams, and the love of the game.",
         imageUrl: "/images/team/2016_team.png", // Image of a player looking determined
     },
 ];
