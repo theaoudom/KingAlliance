@@ -17,6 +17,7 @@ export const playersByPosition = {
     { id: 7, name: "Pheap Sophanna", position: "Forward", number: 7, imageUrl: `/images/players/sophana_yellow.png` },
     { id: 9, name: "Phol Karana", position: "Forward", number: 9, imageUrl: `/images/players/karona_yellow.png` },
     { id: 10, name: "Leng Chhayhong", position: "Forward", number: 10, imageUrl: `/images/players/chhayhong_yellow.png` },
+    { id: 19, name: "Thy KimChorng", position: "Forward", number: 19, imageUrl: `/images/players/chhorng_yellow.png` },
     { id: 20, name: "Sun Sela", position: "Forward", number: 20, imageUrl: `/images/players/sela_yellow.png` },
   ],
 };
