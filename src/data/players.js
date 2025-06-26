@@ -3,17 +3,21 @@ export const playersByPosition = {
     { id: 1, name: " Ansory", position: "Goalkeeper", number: 1, imageUrl: `/images/players/ansory_gk_2023.png` },
   ],
   Defenders: [
+    { id: 22, name: " Reaksa", position: "Defender", number: 22, imageUrl: `/images/players/reaksa_yellow.png` },
+    { id: 24, name: "Chek Pich", position: "Defender", number: 24, imageUrl: `/images/players/pich_yellow.png` },
+    { id: 27, name: "Meng MinhCheong", position: "Defender", number: 27, imageUrl: `/images/players/minhcheong_yellow.png` },
     { id: 30, name: "Kouy ChhengKorng", position: "Defender", number: 30, imageUrl: `/images/players/chhengkorng_yellow.png` },
-    { id: 5, name: "Chris Lee", position: "Defender", number: 5, imageUrl: `https://placehold.co/400x400/201d2a/d4af37?text=CL` },
-    { id: 8, name: "Ryan Thompson", position: "Defender", number: 3, imageUrl: `https://placehold.co/400x400/201d2a/d4af37?text=RT` },
   ],
   Midfielders: [
     { id: 15, name: "Chea Lyhorng", position: "Midfielder", number: 15, imageUrl: `/images/players/tutu_2023_kit2.png` },
+    { id: 23, name: " Ngie", position: "Midfielder", number: 23, imageUrl: `/images/players/ngie_yellow.png` },
     { id: 27, name: "Choeun Chhinlong", position: "Midfielder", number: 27, imageUrl: `/images/players/chinlong_yellow.png` },
   ],
   Forwards: [
+    { id: 7, name: "Pheap Sophanna", position: "Forward", number: 7, imageUrl: `/images/players/sophana_yellow.png` },
     { id: 9, name: "Phol Karana", position: "Forward", number: 9, imageUrl: `/images/players/karona_yellow.png` },
-    { id: 7, name: "David Martinez", position: "", number: 19, imageUrl: `https://placehold.co/400x400/201d2a/d4af37?text=DM` },
+    { id: 10, name: "Leng Chhayhong", position: "Forward", number: 10, imageUrl: `/images/players/chhayhong_yellow.png` },
+    { id: 20, name: "Sun Sela", position: "Forward", number: 20, imageUrl: `/images/players/sela_yellow.png` },
   ],
 };
 
