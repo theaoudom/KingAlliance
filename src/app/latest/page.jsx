@@ -22,7 +22,7 @@ const mockVideos = [
 ];
 
 const mockFixtures = {
-    previousMatch: { homeTeam: { name: "King Alliance", logo: "/images/logo/logo.png" }, awayTeam: { name: "Rivals FC", logo: "/images/logo/logo.png" }, score: "2 - 1", competition: "League Final", date: "2024-05-28" },
+    previousMatch: { homeTeam: { name: "King Alliance", logo: "/images/logo/logo.png" }, awayTeam: { name: "Godzilla", logo: "https://z-p3-scontent.fpnh5-4.fna.fbcdn.net/v/t39.30808-6/469556369_557057270468558_8009125323027450945_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeH-4yxgFdjvVTvBVYQnC4cO-vfnCjl_XGz69-cKOX9cbOANpM_igKaDkEFc5LDHSPuWaLeZVRCuJ2HB3e4nH5n1&_nc_ohc=ke0MkjRCYO0Q7kNvwEAYNE5&_nc_oc=AdmVpdyvRN3spReMPqVooAFkQ7PW9yHNqUrKgXYuvOODxF182rHRjlGKO_pNjcd5rQc&_nc_zt=23&_nc_ht=z-p3-scontent.fpnh5-4.fna&_nc_gid=1x_PnKRZvQsw_oChGUZkRQ&oh=00_AfOLR2D8UuOENJbH0jrqUqsuQ_xy-J24JYzedXIAjz3nkg&oe=6864A748" }, score: "3 - 5", competition: "Friendly Match", date: "2024-05-28" },
     nextMatch: { homeTeam: { name: "King Alliance", logo: "/images/logo/logo.png" }, awayTeam: { name: "City United", logo: "/images/logo/logo.png" }, time: "15:00 BST", competition: "Pre-Season Friendly", date: "2024-07-15" }
 };
 
