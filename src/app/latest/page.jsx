@@ -23,7 +23,8 @@ const mockVideos = [
 
 const mockFixtures = {
     previousMatch: { homeTeam: { name: "King Alliance", logo: "/images/logo/logo.png" }, awayTeam: { name: "Godzilla", logo: "https://z-p3-scontent.fpnh5-4.fna.fbcdn.net/v/t39.30808-6/469556369_557057270468558_8009125323027450945_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeH-4yxgFdjvVTvBVYQnC4cO-vfnCjl_XGz69-cKOX9cbOANpM_igKaDkEFc5LDHSPuWaLeZVRCuJ2HB3e4nH5n1&_nc_ohc=ke0MkjRCYO0Q7kNvwEAYNE5&_nc_oc=AdmVpdyvRN3spReMPqVooAFkQ7PW9yHNqUrKgXYuvOODxF182rHRjlGKO_pNjcd5rQc&_nc_zt=23&_nc_ht=z-p3-scontent.fpnh5-4.fna&_nc_gid=1x_PnKRZvQsw_oChGUZkRQ&oh=00_AfOLR2D8UuOENJbH0jrqUqsuQ_xy-J24JYzedXIAjz3nkg&oe=6864A748" }, score: "3 - 5", competition: "Friendly Match", date: "2024-05-28" },
-    nextMatch: { homeTeam: { name: "King Alliance", logo: "/images/logo/logo.png" }, awayTeam: { name: "City United", logo: "/images/logo/logo.png" }, time: "15:00 BST", competition: "Pre-Season Friendly", date: "2024-07-15" }
+    nextMatch: ""
+    // { homeTeam: { name: "King Alliance", logo: "/images/logo/logo.png" }, awayTeam: { name: "City United", logo: "/images/logo/logo.png" }, time: "15:00 BST", competition: "Pre-Season Friendly", date: "2024-07-15" }
 };
 
 const promotionData = {
@@ -93,30 +94,37 @@ const MatchCenter = () => {
                     </div>
                 </div>
 
-                {/* Next Match Card */}
-                <div className="bg-white p-6 rounded-lg shadow-lg
-                                transition-all duration-500 ease-in-out  {/* <-- CHANGED HERE */}
-                                hover:shadow-2xl hover:scale-[1.03]">
-                    <h3 className="text-lg font-bold text-center text-gray-600 mb-4">Next Match</h3>
-                    <div className="flex items-center justify-between">
-                        <div className="flex flex-col items-center w-1/3">
-                            <img src={nextMatch.homeTeam.logo} alt={nextMatch.homeTeam.name} className="h-16 w-16 mb-2" />
-                            <span className="font-semibold text-center text-[#201d2a]">{nextMatch.homeTeam.name}</span>
-                        </div>
-                        <div className="text-center">
-                            <span className="text-3xl font-bold text-[#d4af37]">{nextMatch.time}</span>
-                            <p className="text-xs text-gray-500">vs</p>
-                        </div>
-                        <div className="flex flex-col items-center w-1/3">
-                            <img src={nextMatch.awayTeam.logo} alt={nextMatch.awayTeam.name} className="h-16 w-16 mb-2" />
-                            <span className="font-semibold text-center text-[#201d2a]">{nextMatch.awayTeam.name}</span>
-                        </div>
-                    </div>
-                     <div className="text-center mt-4 text-gray-500 text-sm">
-                        <p className="flex items-center justify-center"><Calendar className="h-4 w-4 mr-2"/> {new Date(nextMatch.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric' })}</p>
-                    </div>
-                </div>
-                
+                {/* Next Match Card or Placeholder */}
+                {nextMatch ? (
+                  <div className="bg-white p-6 rounded-lg shadow-lg
+                                  transition-all duration-500 ease-in-out  {/* <-- CHANGED HERE */}
+                                  hover:shadow-2xl hover:scale-[1.03]">
+                      <h3 className="text-lg font-bold text-center text-gray-600 mb-4">Next Match</h3>
+                      <div className="flex items-center justify-between">
+                          <div className="flex flex-col items-center w-1/3">
+                              <img src={nextMatch.homeTeam.logo} alt={nextMatch.homeTeam.name} className="h-16 w-16 mb-2" />
+                              <span className="font-semibold text-center text-[#201d2a]">{nextMatch.homeTeam.name}</span>
+                          </div>
+                          <div className="text-center">
+                              <span className="text-3xl font-bold text-[#d4af37]">{nextMatch.time}</span>
+                              <p className="text-xs text-gray-500">vs</p>
+                          </div>
+                          <div className="flex flex-col items-center w-1/3">
+                              <img src={nextMatch.awayTeam.logo} alt={nextMatch.awayTeam.name} className="h-16 w-16 mb-2" />
+                              <span className="font-semibold text-center text-[#201d2a]">{nextMatch.awayTeam.name}</span>
+                          </div>
+                      </div>
+                       <div className="text-center mt-4 text-gray-500 text-sm">
+                          <p className="flex items-center justify-center"><Calendar className="h-4 w-4 mr-2"/> {new Date(nextMatch.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric' })}</p>
+                      </div>
+                  </div>
+                ) : (
+                  <div className="bg-gradient-to-br from-gray-50 to-gray-200 p-8 rounded-lg shadow-lg flex flex-col items-center justify-center min-h-[200px] border border-dashed border-[#d4af37]">
+                    <Calendar className="h-12 w-12 text-[#d4af37] mb-4 animate-pulse" />
+                    <span className="text-xl font-semibold text-gray-700 text-center mb-2">No Upcoming Matches</span>
+                    <p className="text-gray-500 text-center">Stay tuned for future fixtures and updates!</p>
+                  </div>
+                )}
             </div>
         </div>
     )
