@@ -16,9 +16,7 @@ const mockNews = [
 ];
 
 const mockVideos = [
-    { id: 1, title: "Match Highlights: King Alliance vs. Rivals FC", duration: "5:32", thumbnailUrl: "https://images.unsplash.com/photo-1517423568342-33b6670e3a65?auto=format&fit=crop&w=1287&q=80" },
-    { id: 2, title: "Inside Training: Preparing for the Final", duration: "10:15", thumbnailUrl: "https://images.unsplash.com/photo-1552667466-07770ae110d0?auto=format&fit=crop&w=1287&q=80" },
-    { id: 3, title: "Player Interview: Our Star Striker on His New Contract", duration: "7:48", thumbnailUrl: "https://images.unsplash.com/photo-1628891890377-573783d7e5a7?auto=format&fit=crop&w=1287&q=80" },
+    { id: 1, title: "កិច្ចសម្ភាសចំណាប់អារម្មណ៍កីឡាករនៅពេលប្រកួតចប់", duration: "1:21", thumbnailUrl: "/images/tumnail_vdo1.png", link: "https://web.facebook.com/share/v/16tvkgdWrN/" },
 ];
 
 const mockFixtures = {
@@ -150,13 +148,19 @@ const LatestVideos = () => (
         <SectionHeader title="Latest Videos" />
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {mockVideos.map(video => (
-                <div key={video.id} className="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer">
+                <a
+                  key={video.id}
+                  href={video.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer"
+                >
                     <img src={video.thumbnailUrl} alt={video.title} className="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300" />
                     <div className="absolute inset-0 bg-black/40"></div>
                     <div className="absolute inset-0 flex items-center justify-center"><PlayCircle size={64} className="text-white/80 transform group-hover:scale-110 group-hover:text-white transition-all duration-300" /></div>
                     <div className="absolute bottom-0 left-0 p-4"><h3 className="text-white font-bold text-lg">{video.title}</h3></div>
                     <span className="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">{video.duration}</span>
-                </div>
+                </a>
             ))}
         </div>
     </div>
