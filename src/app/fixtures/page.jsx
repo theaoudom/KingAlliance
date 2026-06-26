@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Calendar, Shield, Ticket, ArrowRight, MapPin } from 'lucide-react';
+import { Calendar, Shield, MapPin } from 'lucide-react';
 import HeroSection from '../../components/HeroSection';
 import { mockFixturesByYear, getAllYears } from '../../data/fixtures';
 
@@ -72,18 +72,12 @@ const FixtureCard = ({ fixture, type }) => {
         </div>
       </div>
 
-      {/* Card Footer with Hover Action */}
-      <div className="bg-gray-50 px-4 py-3 border-t border-gray-200 flex justify-between items-center">
+      {/* Card Footer */}
+      <div className="bg-gray-50 px-4 py-3 border-t border-gray-200 flex items-center">
         <div className="flex items-center space-x-2 text-sm text-gray-500">
-          <MapPin size={16}/>
+          <MapPin size={16} />
           <span>{fixture.venue}</span>
         </div>
-        <a href="#" className="flex items-center bg-[#201d2a] text-white px-3 py-1.5 rounded-md text-xs font-semibold
-                               opacity-0 group-hover:opacity-100 transform group-hover:scale-100 scale-95
-                               transition-all duration-300 ease-in-out">
-            {isResult ? 'Match Report' : 'Get Tickets'}
-            {isResult ? <ArrowRight size={14} className="ml-2"/> : <Ticket size={14} className="ml-2"/>}
-        </a>
       </div>
     </div>
   );
@@ -125,7 +119,7 @@ export default function FixturesPage() {
       <HeroSection 
         title="Fixtures & Results"
         subtitle="Stay up to date with every match from the season"
-        imageUrl="https://wallpapercat.com/w/full/7/5/0/172434-3840x2160-desktop-4k-football-wallpaper-image.jpg"
+        imageUrl="/images/team/fixtures_hero.jpg"
       />
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 -mt-20 relative z-10">
 

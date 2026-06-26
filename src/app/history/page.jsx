@@ -28,12 +28,21 @@ export default function HistoryPage() {
         ))}
       </main>
 
-      {/* A concluding section to bookend the timeline */}
-      <footer className="h-screen w-full flex flex-col items-center justify-center text-center text-white bg-black">
-        <Star size={48} className="text-[#d4af37]" />
-        <h2 className="text-4xl font-bold mt-4">Founded 2016</h2>
-        <p className="mt-2 text-white/70">The beginning of our journey.</p>
-      </footer>
+      {/* Closing section */}
+      <div className="h-screen w-full flex flex-col items-center justify-center text-center text-white bg-black px-4">
+        <Star size={48} className="text-[#d4af37] mb-6" />
+        <h2 className="text-5xl md:text-7xl font-black uppercase">The Journey</h2>
+        <div className="w-20 h-1 bg-[#d4af37] my-6 rounded-full" />
+        <p className="text-2xl font-light text-white/70 max-w-lg">
+          From a group of friends with a football to a proud club. The story continues.
+        </p>
+        <a
+          href="/fixtures"
+          className="mt-10 inline-flex items-center bg-[#d4af37] text-[#201d2a] px-8 py-4 rounded-xl font-bold hover:bg-yellow-300 transition-colors duration-300"
+        >
+          See Our Matches
+        </a>
+      </div>
     </div>
   );
 }

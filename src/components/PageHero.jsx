@@ -1,7 +1,7 @@
 import React from 'react';
 
 const PageHero = ({ title, icon, backgroundImageUrl }) => (
-    <div className="relative h-64 md:h-72 w-full flex items-center text-white overflow-hidden rounded-b-lg shadow-2xl mb-12 md:mb-16">
+    <div className="relative h-[50vh] md:h-[60vh] w-full flex items-center text-white overflow-hidden rounded-b-lg shadow-2xl mb-12 md:mb-16">
         {/* Background Image */}
         <img 
             src={backgroundImageUrl} 

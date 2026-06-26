@@ -5,6 +5,7 @@ export const playersByPosition = {
   Defenders: [
     { id: 22, name: " Reaksa", position: "Defender", number: 22, imageUrl: `/images/players/reaksa_yellow.png` },
     { id: 24, name: "Chek Pich", position: "Defender", number: 24, imageUrl: `/images/players/pich_yellow.png` },
+    { id: 25, name: "Thea Oudom", position: "Defender", number: 25, imageUrl: `/images/players/thea_oudom_yellow.png` },
     { id: 27, name: "Meng MinhCheong", position: "Defender", number: 27, imageUrl: `/images/players/minhcheong_yellow.png` },
     { id: 30, name: "Kouy ChhengKorng", position: "Defender", number: 30, imageUrl: `/images/players/chhengkorng_yellow.png` },
   ],

@@ -1,7 +1,7 @@
 // --- UPDATED COMPONENT: HeroSection with Animated Accent Bar ---
 const HeroSection = ({ title, subtitle, imageUrl }) => (
     // Step 1: Add the "group" class to the main container to enable group-hover
-    <div className="group relative h-[28rem] md:h-[32rem] w-full flex items-end text-white overflow-hidden rounded-b-lg shadow-2xl mb-12 md:mb-16">
+    <div className="group relative h-[60vh] md:h-[70vh] w-full flex items-end text-white overflow-hidden rounded-b-lg shadow-2xl mb-12 md:mb-16">
         <img 
             src={imageUrl} 
             alt="Hero background"
